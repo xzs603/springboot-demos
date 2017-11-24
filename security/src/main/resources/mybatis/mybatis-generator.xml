@@ -23,11 +23,13 @@
 
         <sqlMapGenerator targetPackage="mybatis.mapper"
                          targetProject="E:\architect\workspace\github\springboot-demos\security\src\main\resources">
+
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator targetPackage="com.mttsui.security.model.mapper"
                              targetProject="E:\architect\workspace\github\springboot-demos\security\src\main\java" type="XMLMAPPER">
+
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
