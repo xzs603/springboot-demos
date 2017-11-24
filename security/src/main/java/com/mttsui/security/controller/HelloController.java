@@ -1,4 +1,4 @@
-package com.mttsui.security;
+package com.mttsui.security.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
