@@ -72,4 +72,17 @@ public class SysUser {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", deptId=" + deptId +
+                ", activeInd=" + activeInd +
+                ", createTime=" + createTime +
+                '}';
+    }
 }
