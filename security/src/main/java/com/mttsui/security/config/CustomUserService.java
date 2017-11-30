@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 public class CustomUserService implements UserDetailsService {
     @Autowired
     SysUserMapper userRepository;
-
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         SysUser user = userRepository.findByName(s);
