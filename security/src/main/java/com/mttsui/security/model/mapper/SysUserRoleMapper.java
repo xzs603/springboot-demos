@@ -1,7 +1,9 @@
 package com.mttsui.security.model.mapper;
 
 import com.mttsui.security.model.entity.SysUserRole;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface SysUserRoleMapper {
     int deleteByPrimaryKey(String id);
 

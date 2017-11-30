@@ -62,4 +62,16 @@ public class SysUser {
     public void setActInd(String actInd) {
         this.actInd = actInd == null ? null : actInd.trim();
     }
+
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", birthday=" + birthday +
+                ", actInd='" + actInd + '\'' +
+                '}';
+    }
 }

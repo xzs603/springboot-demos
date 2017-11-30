@@ -16,24 +16,48 @@
                         password="root"/>
 
         <javaModelGenerator targetPackage="com.mttsui.security.model.entity"
-                            targetProject="E:\architect\workspace\github\springboot-demos\security\src\main\java">
+                            targetProject="\temp\mybatis">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="mybatis.mapper"
-                         targetProject="E:\architect\workspace\github\springboot-demos\security\src\main\resources">
+                         targetProject="\temp\mybatis">
 
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator targetPackage="com.mttsui.security.model.mapper"
-                             targetProject="E:\architect\workspace\github\springboot-demos\security\src\main\java" type="XMLMAPPER">
+                             targetProject="\temp\mybatis" type="XMLMAPPER">
 
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <table tableName="SYS_USER" domainObjectName="SysUser"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="SYS_ROLE" domainObjectName="SysRole"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="SYS_MENU" domainObjectName="SysMenu"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="SYS_USER_ROLE" domainObjectName="SysUserRole"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="SYS_ROLE_MENU" domainObjectName="SysRoleMenu"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

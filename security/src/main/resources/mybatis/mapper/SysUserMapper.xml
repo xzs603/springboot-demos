@@ -12,6 +12,11 @@
   <sql id="Base_Column_List">
     ID, NAME, PASSWORD, NICKNAME, BIRTHDAY, ACT_IND
   </sql>
+  <select id="list" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
