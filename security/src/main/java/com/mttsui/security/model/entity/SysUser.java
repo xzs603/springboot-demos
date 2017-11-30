@@ -3,26 +3,24 @@ package com.mttsui.security.model.entity;
 import java.util.Date;
 
 public class SysUser {
-    private Long id;
+    private String id;
 
     private String name;
 
     private String password;
 
-    private String email;
+    private String nickname;
 
-    private Long deptId;
+    private Date birthday;
 
-    private Byte activeInd;
+    private String actInd;
 
-    private Date createTime;
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getName() {
@@ -41,48 +39,27 @@ public class SysUser {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getEmail() {
-        return email;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+    public void setNickname(String nickname) {
+        this.nickname = nickname == null ? null : nickname.trim();
     }
 
-    public Long getDeptId() {
-        return deptId;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public Byte getActiveInd() {
-        return activeInd;
+    public String getActInd() {
+        return actInd;
     }
 
-    public void setActiveInd(Byte activeInd) {
-        this.activeInd = activeInd;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    @Override
-    public String toString() {
-        return "SysUser{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", deptId=" + deptId +
-                ", activeInd=" + activeInd +
-                ", createTime=" + createTime +
-                '}';
+    public void setActInd(String actInd) {
+        this.actInd = actInd == null ? null : actInd.trim();
     }
 }
