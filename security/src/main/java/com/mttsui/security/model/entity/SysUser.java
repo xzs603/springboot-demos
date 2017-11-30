@@ -1,8 +1,13 @@
 package com.mttsui.security.model.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
 import java.util.Date;
 
-public class SysUser {
+public class SysUser implements UserDetails {
+
     private String id;
 
     private String name;
@@ -31,10 +36,6 @@ public class SysUser {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
@@ -61,6 +62,40 @@ public class SysUser {
 
     public void setActInd(String actInd) {
         this.actInd = actInd == null ? null : actInd.trim();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return name;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     @Override

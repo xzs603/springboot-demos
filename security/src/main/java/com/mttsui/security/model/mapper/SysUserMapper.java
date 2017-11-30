@@ -10,6 +10,8 @@ public interface SysUserMapper {
 
     List<SysUser> list();
 
+    SysUser findByName(String name);
+
     int deleteByPrimaryKey(String id);
 
     int insert(SysUser record);
