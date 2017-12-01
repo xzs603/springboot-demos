@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mttsui.security.model.mapper.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="com.mttsui.security.model.entity.SysRole">
+<mapper namespace="com.mttsui.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.mttsui.SysRole">
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />
@@ -25,13 +25,13 @@
     delete from sys_role
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.mttsui.security.model.entity.SysRole">
+  <insert id="insert" parameterType="com.mttsui.SysRole">
     insert into sys_role (ID, NAME, REMARK, 
       ROLE_TYPE)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
       #{roleType,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mttsui.security.model.entity.SysRole">
+  <insert id="insertSelective" parameterType="com.mttsui.SysRole">
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -62,7 +62,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mttsui.security.model.entity.SysRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.mttsui.SysRole">
     update sys_role
     <set>
       <if test="name != null">
@@ -77,7 +77,7 @@
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mttsui.security.model.entity.SysRole">
+  <update id="updateByPrimaryKey" parameterType="com.mttsui.SysRole">
     update sys_role
     set NAME = #{name,jdbcType=VARCHAR},
       REMARK = #{remark,jdbcType=VARCHAR},
