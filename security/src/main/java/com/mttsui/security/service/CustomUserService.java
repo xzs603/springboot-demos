@@ -1,4 +1,4 @@
-package com.mttsui.security.config;
+package com.mttsui.security.service;
 
 import com.mttsui.security.model.entity.SysUser;
 import com.mttsui.security.model.mapper.SysUserMapper;
@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomUserService implements UserDetailsService {
     @Autowired
     SysUserMapper userRepository;
