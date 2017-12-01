@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mttsui.SysMenuMapper">
-  <resultMap id="BaseResultMap" type="com.mttsui.SysMenu">
+<mapper namespace="com.mttsui.security.model.mapper.SysMenuMapper">
+  <resultMap id="BaseResultMap" type="com.mttsui.security.model.entity.SysMenu">
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="TITLE" jdbcType="VARCHAR" property="title" />
     <result column="URL" jdbcType="VARCHAR" property="url" />
@@ -20,13 +20,13 @@
     delete from sys_menu
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.mttsui.SysMenu">
+  <insert id="insert" parameterType="com.mttsui.security.model.entity.SysMenu">
     insert into sys_menu (ID, TITLE, URL, 
       PID)
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
       #{pid,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.mttsui.SysMenu">
+  <insert id="insertSelective" parameterType="com.mttsui.security.model.entity.SysMenu">
     insert into sys_menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mttsui.SysMenu">
+  <update id="updateByPrimaryKeySelective" parameterType="com.mttsui.security.model.entity.SysMenu">
     update sys_menu
     <set>
       <if test="title != null">
@@ -72,7 +72,7 @@
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mttsui.SysMenu">
+  <update id="updateByPrimaryKey" parameterType="com.mttsui.security.model.entity.SysMenu">
     update sys_menu
     set TITLE = #{title,jdbcType=VARCHAR},
       URL = #{url,jdbcType=VARCHAR},

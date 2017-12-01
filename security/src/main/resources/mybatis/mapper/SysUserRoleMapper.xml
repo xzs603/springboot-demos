@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mttsui.SysUserRoleMapper">
-  <resultMap id="BaseResultMap" type="com.mttsui.SysUserRole">
+<mapper namespace="com.mttsui.security.model.mapper.SysUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.mttsui.security.model.entity.SysUserRole">
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
     <result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
@@ -10,7 +10,7 @@
     ID, USER_ID, ROLE_ID
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_user_role
     where ID = #{id,jdbcType=VARCHAR}
@@ -19,13 +19,13 @@
     delete from sys_user_role
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.mttsui.SysUserRole">
+  <insert id="insert" parameterType="com.mttsui.security.model.entity.SysUserRole">
     insert into sys_user_role (ID, USER_ID, ROLE_ID
       )
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mttsui.SysUserRole">
+  <insert id="insertSelective" parameterType="com.mttsui.security.model.entity.SysUserRole">
     insert into sys_user_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mttsui.SysUserRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.mttsui.security.model.entity.SysUserRole">
     update sys_user_role
     <set>
       <if test="userId != null">
@@ -62,7 +62,7 @@
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mttsui.SysUserRole">
+  <update id="updateByPrimaryKey" parameterType="com.mttsui.security.model.entity.SysUserRole">
     update sys_user_role
     set USER_ID = #{userId,jdbcType=VARCHAR},
       ROLE_ID = #{roleId,jdbcType=VARCHAR}
