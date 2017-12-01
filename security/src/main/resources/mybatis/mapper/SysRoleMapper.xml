@@ -10,6 +10,11 @@
   <sql id="Base_Column_List">
     ID, NAME, REMARK, ROLE_TYPE
   </sql>
+  <select id="list" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_role
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

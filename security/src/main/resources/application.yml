@@ -12,3 +12,5 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&characterEncoding=utf8
     username: root
     password: root
+  thymeleaf:
+    mode: LEGACYHTML5

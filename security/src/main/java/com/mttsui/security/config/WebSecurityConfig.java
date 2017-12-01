@@ -30,6 +30,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
+        // 默认关闭跨域检查
+        http.csrf().disable();
+        // 关闭iframe中ajax禁止
+        http.headers().frameOptions().disable();
     }
 
     @Bean
