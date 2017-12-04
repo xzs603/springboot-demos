@@ -12,6 +12,7 @@
         <module>springboot-helloworld</module>
         <module>security</module>
         <module>jpa</module>
+        <module>easyui</module>
     </modules>
 
 

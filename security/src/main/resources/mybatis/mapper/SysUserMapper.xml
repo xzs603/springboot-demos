@@ -24,7 +24,7 @@
     where NAME = #{name,jdbcType=VARCHAR}
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_user
     where ID = #{id,jdbcType=VARCHAR}
@@ -34,10 +34,10 @@
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.mttsui.security.model.entity.SysUser">
-    insert into sys_user (ID, NAME, PASSWORD, 
+    insert into sys_user (ID, NAME, PASSWORD,
       NICKNAME, BIRTHDAY, ACT_IND
       )
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{nickname,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{actInd,jdbcType=CHAR}
       )
   </insert>

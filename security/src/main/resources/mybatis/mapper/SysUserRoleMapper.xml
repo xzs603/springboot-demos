@@ -10,7 +10,7 @@
     ID, USER_ID, ROLE_ID
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_user_role
     where ID = #{id,jdbcType=VARCHAR}

@@ -30,10 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
-        // 默认关闭跨域检查
-        http.csrf().disable();
-        // 关闭iframe中ajax禁止
-        http.headers().frameOptions().disable();
+        // 取消csrf拦截
+        http.csrf().disable()
+        .headers().frameOptions().disable();
     }
 
     @Bean
@@ -55,6 +54,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 return encodedPassword.equals(MD5Util.encrypt((String) rawPassword));
             }
         }); //user Details Service验证
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/js/**").antMatchers("/easyui/**")
+                .antMatchers("/css/**").antMatchers("/images/**");
     }
 
 
