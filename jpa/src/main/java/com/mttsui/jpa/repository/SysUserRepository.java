@@ -1,6 +1,6 @@
-package com.mttsui.jpa.model;
+package com.mttsui.jpa.repository;
 
-import com.mttsui.jpa.model.entity.SysUser;
+import com.mttsui.jpa.entity.SysUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SysUserRepository extends JpaRepository<SysUser, Long> {

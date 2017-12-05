@@ -1,4 +1,4 @@
-package com.mttsui.jpa.model.entity;
+package com.mttsui.jpa.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
