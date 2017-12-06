@@ -13,6 +13,7 @@
         <module>security</module>
         <module>jpa</module>
         <module>easyui</module>
+        <module>jpaims</module>
     </modules>
 
 
