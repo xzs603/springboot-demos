@@ -1,7 +1,9 @@
 package com.mttsui.jpa;
 
-import com.mttsui.jpa.model.SysUserRepository;
-import com.mttsui.jpa.model.entity.SysUser;
+import com.mttsui.jpa.entity.SysMenu;
+import com.mttsui.jpa.repository.SysMenuRepository;
+import com.mttsui.jpa.repository.SysUserRepository;
+import com.mttsui.jpa.entity.SysUser;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,14 +17,19 @@ public class JpaApplicationTests {
 
     @Autowired
     private SysUserRepository sysUserRepository;
+    @Autowired
+    private SysMenuRepository sysMenuRepository;
 
     @Test
     public void Test(){
-        sysUserRepository.save(new SysUser("AAA", 10));
-        sysUserRepository.save(new SysUser("BBB", 20));
-        sysUserRepository.save(new SysUser("CCC", 30));
+//        sysUserRepository.save(new SysUser("AAA", 10));
+//        sysUserRepository.save(new SysUser("BBB", 20));
+//        sysUserRepository.save(new SysUser("CCC", 30));
+        sysMenuRepository.save(new SysMenu(-1L, "系统管理", "/sys/manage", ""));
+        sysMenuRepository.save(new SysMenu(1L, "菜单管理", "/sys/manage", ""));
+        sysMenuRepository.save(new SysMenu(1L, "用户管理", "/sys/manage", ""));
 
-        Assert.assertEquals(3, sysUserRepository.findAll().size());
+        Assert.assertEquals(3, sysMenuRepository.findAll().size());
 
     }
 }

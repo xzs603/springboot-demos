@@ -1,7 +1,7 @@
 package com.mttsui.jpa.web;
 
-import com.mttsui.jpa.model.SysUserRepository;
-import com.mttsui.jpa.model.entity.SysUser;
+import com.mttsui.jpa.repository.SysUserRepository;
+import com.mttsui.jpa.entity.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
