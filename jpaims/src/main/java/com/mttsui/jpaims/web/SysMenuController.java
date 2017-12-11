@@ -5,19 +5,27 @@ import com.mttsui.jpaims.entity.SysUser;
 import com.mttsui.jpaims.service.SysMenuService;
 import com.mttsui.jpaims.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/menu")
 public class SysMenuController {
 
     @Autowired
     private SysMenuService sysMenuService;
 
+    @RequestMapping("")
+    public String index(){
+        return "menu/index";
+    }
+
     @RequestMapping("/list")
+    @ResponseBody
     public List<SysMenu> list(){
         return sysMenuService.list();
     }

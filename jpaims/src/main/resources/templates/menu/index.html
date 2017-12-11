@@ -16,16 +16,15 @@
 <p>Click the buttons on datagrid toolbar to do crud actions.</p>
 
 <table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
-       url="/user/list"
+       url="/menu/list"
        toolbar="#toolbar" pagination="true"
        rownumbers="true" fitColumns="true" singleSelect="true">
     <thead>
     <tr>
-        <th field="id" style="display:none">Id</th>
-        <th field="username" width="50">Name</th>
-        <th field="password" width="50">password</th>
-        <th field="nickname" width="50">nickname</th>
-        <th field="birthday" width="50">birthday</th>
+        <th field="title" width="50">Title</th>
+        <th field="url" width="50">Url</th>
+        <th field="pid" width="50">Pid</th>
+        <th field="type" width="50">Type</th>
     </tr>
     </thead>
 </table>
@@ -42,19 +41,19 @@
         <div class="fitem">
             <label>Name:</label>
             <input name="id" type="hidden" />
-            <input name="username" class="easyui-textbox" required="true">
+            <input name="Title" class="easyui-textbox" required="true">
         </div>
         <div class="fitem">
             <label>password:</label>
-            <input name="password" class="easyui-textbox" required="true">
+            <input name="Url" class="easyui-textbox" required="true">
         </div>
         <div class="fitem">
             <label>nickname:</label>
-            <input name="nickname" class="easyui-textbox">
+            <input name="Pid" class="easyui-textbox">
         </div>
         <div class="fitem">
             <label>birthday:</label>
-            <input name="birthday" class="easyui-datebox" data-options="editable:false" />
+            <input name="Type" class="easyui-textbox" data-options="editable:false" />
         </div>
     </form>
 </div>
@@ -67,14 +66,14 @@
 		function newUser(){
 			$('#dlg').dialog('open').dialog('setTitle','New User');
 			$('#fm').form('clear');
-			url = '/user/create';
+			url = '/menu/create';
 		}
 		function editUser(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
 				$('#dlg').dialog('open').dialog('setTitle','Edit User');
 				$('#fm').form('load',row);
-				url = '/user/update';
+				url = '/menu/update';
 			}
 		}
 		function saveUser(){
