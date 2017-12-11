@@ -1,4 +1,7 @@
 package com.mttsui.jpaims.repository;
 
-public interface SysMenuRepository {
+import com.mttsui.jpaims.entity.SysMenu;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SysMenuRepository extends JpaRepository<SysMenu, Long> {
 }
