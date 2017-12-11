@@ -1,14 +1,11 @@
 package com.mttsui.jpaims.web;
 
 import com.mttsui.jpaims.entity.SysMenu;
-import com.mttsui.jpaims.entity.SysUser;
 import com.mttsui.jpaims.service.SysMenuService;
-import com.mttsui.jpaims.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -28,5 +25,30 @@ public class SysMenuController {
     @ResponseBody
     public List<SysMenu> list(){
         return sysMenuService.list();
+    }
+
+    @RequestMapping("/create")
+    @ResponseBody
+    public SysMenu create(SysMenu sysMenu) {
+        return sysMenuService.save(sysMenu);
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public boolean delete(SysMenu sysMenu) {
+        sysMenuService.delete(sysMenu);
+        return true;
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public SysMenu update(SysMenu sysMenu) {
+        return sysMenuService.update(sysMenu);
+    }
+
+    @RequestMapping("/getById")
+    @ResponseBody
+    public SysMenu getById(SysMenu sysMenu) {
+        return sysMenuService.findById(sysMenu);
     }
 }
