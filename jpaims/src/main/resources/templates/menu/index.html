@@ -39,21 +39,21 @@
     <div class="ftitle">User Information</div>
     <form id="fm" method="post" novalidate>
         <div class="fitem">
-            <label>Name:</label>
+            <label>Title:</label>
             <input name="id" type="hidden" />
             <input name="Title" class="easyui-textbox" required="true">
         </div>
         <div class="fitem">
-            <label>password:</label>
+            <label>Url:</label>
             <input name="Url" class="easyui-textbox" required="true">
         </div>
         <div class="fitem">
-            <label>nickname:</label>
+            <label>Pid:</label>
             <input name="Pid" class="easyui-textbox">
         </div>
         <div class="fitem">
-            <label>birthday:</label>
-            <input name="Type" class="easyui-textbox" data-options="editable:false" />
+            <label>Type:</label>
+            <input name="Type" class="easyui-textbox" />
         </div>
     </form>
 </div>
@@ -101,7 +101,7 @@
 			if (row){
 				$.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
 					if (r){
-						$.post('/user/delete',{id:row.id},function(result){
+						$.post('/menu/delete',{id:row.id},function(result){
 							if (result){
 								$('#dg').datagrid('reload');	// reload the user data
 							} else {
