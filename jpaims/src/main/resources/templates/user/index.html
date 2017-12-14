@@ -31,30 +31,7 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
 </div>
-
-<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
-     closed="true" buttons="#dlg-buttons">
-    <div class="ftitle">User Information</div>
-    <form id="fm" method="post" novalidate>
-        <div class="fitem">
-            <label>Name:</label>
-            <input name="id" type="hidden" />
-            <input name="username" class="easyui-textbox" required="true">
-        </div>
-        <div class="fitem">
-            <label>Password:</label>
-            <input name="password" class="easyui-textbox" required="true">
-        </div>
-        <div class="fitem">
-            <label>Nickname:</label>
-            <input name="nickname" class="easyui-textbox">
-        </div>
-        <div class="fitem">
-            <label>Birthday:</label>
-            <input name="birthday" class="easyui-datebox" data-options="editable:false" />
-        </div>
-    </form>
-</div>
+<div th:include="user/form::new"></div>
 <div id="dlg-buttons">
     <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()">Save</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
