@@ -31,7 +31,7 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
 </div>
-<div th:include="user/form::new"></div>
+<div th:replace="user/form::new"></div>
 1111
 <script th:include="common/header::js"></script>
 2222
