@@ -8,6 +8,9 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
 
+  freemarker:
+    template-loader-path: classpath:/freemarker
+
   jackson:
     date-format: yyyy-MM-dd
     time-zone: GMT+8
