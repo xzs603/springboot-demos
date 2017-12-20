@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <title>Basic CRUD Application - jQuery EasyUI CRUD Demo</title>
-    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css" />
-    <script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
-    <script src="../easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css" />
+    <script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+    <script src="/easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
 </head>
 <body>
 <h2>Basic CRUD Application</h2>
@@ -31,7 +31,10 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
 </div>
-<div th:include="user/form::new"></div>
+<div th:replace="user/form::new"></div>
+1111
+<script th:include="common/header::js"></script>
+2222
 <div id="dlg-buttons">
     <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()">Save</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>

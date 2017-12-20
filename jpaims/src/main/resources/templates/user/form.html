@@ -1,12 +1,11 @@
-<div th:fragment="new">
-<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+<div th:fragment="new" id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
      closed="true" buttons="#dlg-buttons">
     <form id="fm" method="post" novalidate>
         <table cellpadding="5">
             <tr>
-                <td>Username:</td>
+                <td><label for="username">Username:</label></td>
                 <td><input type="hidden" name="id"/>
-                    <input class="easyui-textbox" name="username" data-options="required:true"/></td>
+                    <input class="easyui-textbox" id="username" name="username" data-options="required:true"/></td>
             </tr>
             <tr>
                 <td>Password:</td>
@@ -22,4 +21,4 @@
             </tr>
         </table>
     </form>
-</div></div>
+</div>
