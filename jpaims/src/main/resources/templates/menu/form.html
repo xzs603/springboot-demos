@@ -1,0 +1,36 @@
+<div th:fragment="dialog" id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+     closed="true" buttons="#dlg-buttons">
+    <form id="fm" method="post" novalidate>
+        <table cellpadding="5">
+            <tr>
+                <td><label for="title">Title:</label></td>
+                <td><input type="hidden" name="id"/>
+                    <input class="easyui-textbox" id="title" name="title" data-options="required:true"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="url">Url:</label></td>
+                <td>
+                    <input class="easyui-textbox" id="url" type="text" name="url"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="pid">Pid:</label></td>
+                <td>
+                    <input class="easyui-textbox" id="pid" type="text" name="pid" data-options="required:true"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="type">Type:</label></td>
+                <td>
+                    <input class="easyui-textbox" id="type" type="text" name="type" data-options="required:true"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="dlg-buttons" th:fragment="dialog-toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()">Save</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"
+       onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+</div>
