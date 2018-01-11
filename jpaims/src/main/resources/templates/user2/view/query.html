@@ -1,1 +1,20 @@
-<div th:fragment="query"></div>
+<div th:fragment="query">
+<form>
+    <table cellpadding="5" style="margin:5px auto">
+        <tr>
+            <td>Name:</td>
+            <td><input class="easyui-textbox" type="text" name="name" data-options="required:true" /></td>
+            <td>Nickname:</td>
+            <td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'" /></td>
+        </tr>
+        <tr>
+            <td>Birthday:</td>
+            <td><input class="easyui-datebox" name="message" /></td>
+        </tr>
+    </table>
+</form>
+<div style="text-align:center;padding:5px">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+</div>
+</div>
