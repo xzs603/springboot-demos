@@ -3,6 +3,8 @@ package com.mttsui.jpaims.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.util.List;
 
 @Entity
 public class SysMenu {
@@ -18,6 +20,11 @@ public class SysMenu {
     private Long pid;
 
     private byte type;
+
+    private String iconCls;
+
+    @Transient
+    private List<SysMenu> children;
 
     public SysMenu() {
     }
@@ -68,6 +75,22 @@ public class SysMenu {
         this.type = type;
     }
 
+    public String getIconCls() {
+        return iconCls;
+    }
+
+    public void setIconCls(String iconCls) {
+        this.iconCls = iconCls;
+    }
+
+    public List<SysMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SysMenu> children) {
+        this.children = children;
+    }
+
     @Override
     public String toString() {
         return "SysMenu{" +
@@ -76,6 +99,7 @@ public class SysMenu {
                 ", url='" + url + '\'' +
                 ", pid=" + pid +
                 ", type=" + type +
+                ", iconCls='" + iconCls + '\'' +
                 '}';
     }
 }

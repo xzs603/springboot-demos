@@ -3,6 +3,7 @@ package com.mttsui.jpaims.service;
 import com.mttsui.jpaims.entity.SysMenu;
 import com.mttsui.jpaims.repository.SysMenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,5 +32,13 @@ public class SysMenuService {
 
     public SysMenu findById(SysMenu sysMenu) {
         return sysMenuRepository.findOne(sysMenu.getId());
+    }
+
+    public List<SysMenu> findByType(SysMenu sysMenu) {
+        return sysMenuRepository.findByType(sysMenu.getType());
+    }
+
+    public List<SysMenu> findByPid(SysMenu sysMenu) {
+        return sysMenuRepository.findByPid(sysMenu.getId());
     }
 }
