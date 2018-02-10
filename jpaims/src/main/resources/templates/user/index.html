@@ -11,9 +11,6 @@
     <script src="../js/appjs/user/script.js" type="text/javascript"></script>
 </head>
 <body>
-<h2>Basic CRUD Application</h2>
-<p>Click the buttons on datagrid toolbar to do crud actions.</p>
-
 <table id="dg" title="My Users" class="easyui-datagrid"
        url="/user/list"
        toolbar="#toolbar" pagination="true"
@@ -33,9 +30,7 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
 </div>
 <div th:replace="user/form::new"></div>
-1111
 <script th:include="common/header::js"></script>
-2222
 <div id="dlg-buttons">
     <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()">Save</a>
     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
