@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  datasource:
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/springboot_jpaims
+#    username: root
+#    password: root
+
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@172.31.7.113:1522:ORCL
+    username: DATA_QC
+    password: DATA_QC

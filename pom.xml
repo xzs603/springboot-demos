@@ -15,6 +15,7 @@
         <module>easyui</module>
         <module>jpaims</module>
         <module>baseapi</module>
+        <module>multids</module>
     </modules>
 
 
