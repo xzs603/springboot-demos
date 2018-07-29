@@ -1,0 +1,18 @@
+server:
+  port: 8085
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springboot_jpaims
+    username: root
+    password: root
+
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
