@@ -14,6 +14,7 @@
         <module>jpa</module>
         <module>easyui</module>
         <module>jpaims</module>
+        <module>mybatis</module>
     </modules>
 
 
