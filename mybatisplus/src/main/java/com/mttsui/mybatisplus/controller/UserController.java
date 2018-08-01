@@ -6,31 +6,27 @@ import com.mttsui.mybatisplus.entity.User;
 import com.mttsui.mybatisplus.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author admin
  * @since 2018-08-01
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("save/name={name}&age={age}")
-    public User save(@PathVariable String name, @PathVariable int age) {
+    @GetMapping("save")
+    public User save(@RequestParam String name,@RequestParam int age) {
         User user = new User();
         user.setName(name);
         user.setAge(age);
@@ -38,8 +34,8 @@ public class UserController {
         return user;
     }
 
-    @GetMapping("get/name={name}")
-    public User get(@PathVariable String name) {
+    @GetMapping("get")
+    public User get(@RequestParam String name) {
         // sql 条件构造器
         EntityWrapper<User> ew = new EntityWrapper<>();
         ew.eq("name", name);
