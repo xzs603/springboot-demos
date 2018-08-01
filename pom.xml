@@ -17,6 +17,7 @@
         <module>baseapi</module>
         <module>multids</module>
         <module>mybatis</module>
+        <module>mybatisplus</module>
     </modules>
 
 
