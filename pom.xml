@@ -18,6 +18,7 @@
         <module>multids</module>
         <module>mybatis</module>
         <module>mybatisplus</module>
+        <module>wechat</module>
     </modules>
 
 

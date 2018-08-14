@@ -3,12 +3,12 @@ package com.mttsui.mybatisplus.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mttsui.mybatisplus.entity.User;
+import com.mttsui.mybatisplus.entity.XmlUser;
 import com.mttsui.mybatisplus.service.UserService;
+import com.thoughtworks.xstream.XStream;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -41,6 +41,20 @@ public class UserController {
         ew.eq("name", name);
         User user = userService.selectOne(ew);
         return user;
+    }
+
+    @PostMapping
+    public Object parseXml(@RequestBody String xml){
+        XStream xStream = new XStream();
+        xStream.alias("user", User.class);
+        Object s = xStream.fromXML(xml);
+        return s;
+    }
+
+    @PostMapping(value="xml", produces = MediaType.APPLICATION_XML_VALUE)
+    public Object parseXml(@RequestBody XmlUser xmlUser){
+        System.out.println(xmlUser);
+        return xmlUser;
     }
 }
 

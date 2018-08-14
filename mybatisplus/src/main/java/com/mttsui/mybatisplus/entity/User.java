@@ -1,17 +1,21 @@
 package com.mttsui.mybatisplus.entity;
 
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ * <p>
  * </p>
  *
  * @author admin
  * @since 2018-08-01
  */
+@XmlRootElement
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,6 +23,7 @@ public class User implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
     private String name;
+    @XmlElement(name = "Age")
     private Integer age;
 
 
@@ -49,9 +54,9 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-        ", id=" + id +
-        ", name=" + name +
-        ", age=" + age +
-        "}";
+                ", id=" + id +
+                ", name=" + name +
+                ", age=" + age +
+                "}";
     }
 }
