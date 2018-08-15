@@ -1,7 +1,8 @@
 package com.mttsui.wechat.controller;
 
+import com.mttsui.wechat.config.WechatConfig;
 import com.mttsui.wechat.dto.ErrorDto;
-import com.sun.javafx.binding.StringFormatter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,9 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class IndexController {
 
+    @Autowired
+    private WechatConfig wechatConfig;
+
     @GetMapping
     public String index() {
         return "Hello, baby.";
@@ -19,7 +23,7 @@ public class IndexController {
     @GetMapping("rest")
     public String rest() {
         String rs = new RestTemplate().getForObject("https://m.cnblogs.com", String.class);
-        return rs;
+        return wechatConfig.getAppid();
     }
 
     @GetMapping("wxerror")
