@@ -24,7 +24,7 @@ public class WechatService implements IWechatService {
         String message = "你好吗？http://m.cnblogs.com " + new Date();
         String token = tokenService.getAccessToken();
         System.out.println("TOKEN is " + token);
-        String sendMsgUrl = Constant.BASE_URL + Constant.SEND_MASSGE.replace("ACCESS_TOKEN", token);
+        String sendMsgUrl = Constant.BASE_URL + Constant.SEND_TEXT_MASSGE.replace("ACCESS_TOKEN", token);
         SendMessage msg = CommonUtils.genTextMessage(openId, message);
         ErrorDto result = restTemplate.postForObject(sendMsgUrl, msg, ErrorDto.class);
         System.out.println(result);

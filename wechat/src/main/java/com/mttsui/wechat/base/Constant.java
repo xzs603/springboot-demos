@@ -18,7 +18,12 @@ public class Constant {
     /**
      * 发送消息
      */
-    public static final String SEND_MASSGE = "/message/custom/send?access_token=ACCESS_TOKEN";
+    public static final String SEND_TEXT_MASSGE = "/message/custom/send?access_token=ACCESS_TOKEN";
+
+    /**
+     * 发送模板消息
+     */
+    public static final String SEND_TEMPLATE_MASSGE = "/message/template/send?access_token=ACCESS_TOKEN";
 
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
@@ -31,7 +36,7 @@ public class Constant {
         AccessToken token = restTemplate.getForObject(url1, AccessToken.class);
         String tk = token.getAccess_token();
         System.out.println("TOKEN is " + token);
-        String url2 = BASE_URL + SEND_MASSGE.replace("ACCESS_TOKEN", tk);
+        String url2 = BASE_URL + SEND_TEXT_MASSGE.replace("ACCESS_TOKEN", tk);
         SendMessage msg = CommonUtils.genTextMessage(touser, message);
         String result = restTemplate.postForObject(url2, msg, String.class);
         System.out.println(result);
