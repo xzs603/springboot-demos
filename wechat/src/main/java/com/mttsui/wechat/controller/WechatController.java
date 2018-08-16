@@ -37,8 +37,7 @@ public class WechatController {
 
     @GetMapping("sendmsg")
     public boolean sendMessage() {
-        String message = "你好吗？http://m.cnblogs.com " + new Date();
-        String touser = "oRJ9p1MXZQKJOnnRbENL1L8u4c4U";
+        String message = "你好吗？<a href=\"http://m.cnblogs.com\">测试链接</a>" + new Date();
         TextMessage msg = CommonUtils.genTextMessage(touser, message);
         return wechatService.sendTextMessageToUser(touser, msg);
     }
