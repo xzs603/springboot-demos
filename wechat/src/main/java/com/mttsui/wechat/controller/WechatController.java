@@ -45,7 +45,7 @@ public class WechatController {
     @GetMapping("sendtemplatemsg")
     public boolean sendTemplateMsg() {
         TemplateMessage<WcTemplateItem> templateMessage = new TemplateMessage<>();
-        templateMessage.setTouser(touser);
+        templateMessage.setTouser("oRJ9p1ELA8NWS6I6KEVKSJcIKSs8");
         templateMessage.setTemplate_id(template_id);
         templateMessage.setUrl("https://m.cnblogs.com");
         Map<String, WcTemplateItem> words = new HashMap<>();
