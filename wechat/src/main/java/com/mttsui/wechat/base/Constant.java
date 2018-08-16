@@ -1,7 +1,7 @@
 package com.mttsui.wechat.base;
 
 import com.mttsui.wechat.dto.AccessToken;
-import com.mttsui.wechat.dto.SendMessage;
+import com.mttsui.wechat.dto.TextMessage;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
@@ -37,7 +37,7 @@ public class Constant {
         String tk = token.getAccess_token();
         System.out.println("TOKEN is " + token);
         String url2 = BASE_URL + SEND_TEXT_MASSGE.replace("ACCESS_TOKEN", tk);
-        SendMessage msg = CommonUtils.genTextMessage(touser, message);
+        TextMessage msg = CommonUtils.genTextMessage(touser, message);
         String result = restTemplate.postForObject(url2, msg, String.class);
         System.out.println(result);
     }

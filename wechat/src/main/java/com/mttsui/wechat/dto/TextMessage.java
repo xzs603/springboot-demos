@@ -3,13 +3,13 @@ package com.mttsui.wechat.dto;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SendMessage extends ErrorDto {
+public class TextMessage extends ErrorDto {
 
     private String touser;
     private String msgtype;
     private Map<String, Object> text = new HashMap<>();
 
-    public SendMessage() {
+    public TextMessage() {
     }
 
     public String getTouser() {
@@ -34,7 +34,7 @@ public class SendMessage extends ErrorDto {
 
     @Override
     public String toString() {
-        return "SendMessage{" +
+        return "TextMessage{" +
                 "touser='" + touser + '\'' +
                 ", msgtype='" + msgtype + '\'' +
                 ", text=" + text +

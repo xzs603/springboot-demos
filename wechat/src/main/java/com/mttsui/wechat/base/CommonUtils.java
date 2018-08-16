@@ -1,14 +1,14 @@
 package com.mttsui.wechat.base;
 
-import com.mttsui.wechat.dto.SendMessage;
+import com.mttsui.wechat.dto.TextMessage;
 
 public class CommonUtils {
 
-    public static SendMessage genTextMessage(String touser, String message){
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setTouser(touser);
-        sendMessage.setMsgtype("text");
-        sendMessage.getText().put("content", message);
-        return sendMessage;
+    public static TextMessage genTextMessage(String touser, String message){
+        TextMessage textMessage = new TextMessage();
+        textMessage.setTouser(touser);
+        textMessage.setMsgtype("text");
+        textMessage.getText().put("content", message);
+        return textMessage;
     }
 }
