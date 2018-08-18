@@ -26,9 +26,7 @@ public class WechatController {
     @Autowired
     private IWechatService wechatService;
 
-    private String template_id = "3nGijr6SxA-7H5IsxaqtblDpx4iQohrgsulO4jNE7vk";
-
-    private String touser = "oRJ9p1MXZQKJOnnRbENL1L8u4c4U";
+    private String touser = "o5B5m6MvBjGTNdkTHideVhondO7Y";
 
     @GetMapping
     public String index() {
@@ -45,8 +43,8 @@ public class WechatController {
     @GetMapping("sendtemplatemsg")
     public boolean sendTemplateMsg() {
         TemplateMessage<WcTemplateItem> templateMessage = new TemplateMessage<>();
-        templateMessage.setTouser("oRJ9p1ELA8NWS6I6KEVKSJcIKSs8");
-        templateMessage.setTemplate_id(template_id);
+        templateMessage.setTouser(touser);
+        templateMessage.setTemplate_id(wechatConfig.getTemplate_id());
         templateMessage.setUrl("https://m.cnblogs.com");
         Map<String, WcTemplateItem> words = new HashMap<>();
         words.put("hospitalName", new WcTemplateItem("第三人民医院"));
@@ -61,7 +59,7 @@ public class WechatController {
     public Object templateMsg() {
         TemplateMessage<WcTemplateItem> templateMessage = new TemplateMessage<>();
         templateMessage.setTouser(touser);
-        templateMessage.setTemplate_id(template_id);
+        templateMessage.setTemplate_id(wechatConfig.getTemplate_id());
         templateMessage.setUrl("https://m.cnblogs.com");
         Map<String, WcTemplateItem> words = new TreeMap<>();
         words.put("hospitalName", new WcTemplateItem("第三人民医院"));
