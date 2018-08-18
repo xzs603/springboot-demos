@@ -32,7 +32,7 @@ public class TokenService {
                 .replace("APPSECRET", wechatConfig.getAppsecret());
         System.out.println(tokenUrl);
         AccessToken token = restTemplate.getForObject(tokenUrl, AccessToken.class);
-        accessToken = token.getAccess_token();
+        accessToken = token.getAccessToken();
         System.out.println("刷新成功" + accessToken);
     }
 }

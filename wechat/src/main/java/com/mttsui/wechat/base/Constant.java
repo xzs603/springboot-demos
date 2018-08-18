@@ -25,6 +25,18 @@ public class Constant {
      */
     public static final String SEND_TEMPLATE_MASSGE = "/message/template/send?access_token=ACCESS_TOKEN";
 
+    /**
+     * 获取访问code
+     */
+    public static final String REQ_CODE = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+            "appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+
+    /**
+     * 获取Openid
+     */
+    public static final String REQ_OPENID = "https://api.weixin.qq.com/sns/oauth2/access_token?" +
+            "appid=APPID&secret=APPSECRET&code=CODE&grant_type=authorization_code\n";
+
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
         String appid = "wx6bcb623f00a99848";
@@ -34,7 +46,7 @@ public class Constant {
         String url1 = BASE_URL + GET_TOKEN.replace("APPID", appid).replace("APPSECRET", appsecret);
         System.out.println(url1);
         AccessToken token = restTemplate.getForObject(url1, AccessToken.class);
-        String tk = token.getAccess_token();
+        String tk = token.getAccessToken();
         System.out.println("TOKEN is " + token);
         String url2 = BASE_URL + SEND_TEXT_MASSGE.replace("ACCESS_TOKEN", tk);
         TextMessage msg = CommonUtils.genTextMessage(touser, message);

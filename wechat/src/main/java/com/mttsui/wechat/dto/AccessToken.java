@@ -1,32 +1,36 @@
 package com.mttsui.wechat.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AccessToken extends ErrorDto {
 
-    private String access_token;
+    @JsonProperty("access_token")
+    private String accessToken;
 
-    private int expires_in;
+    @JsonProperty("expires_in")
+    private int expiresIn;
 
-    public String getAccess_token() {
-        return access_token;
+    public String getAccessToken() {
+        return accessToken;
     }
 
-    public void setAccess_token(String access_token) {
-        this.access_token = access_token;
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 
-    public int getExpires_in() {
-        return expires_in;
+    public int getExpiresIn() {
+        return expiresIn;
     }
 
-    public void setExpires_in(int expires_in) {
-        this.expires_in = expires_in;
+    public void setExpiresIn(int expiresIn) {
+        this.expiresIn = expiresIn;
     }
 
     @Override
     public String toString() {
         return "AccessToken{" +
-                "access_token='" + access_token + '\'' +
-                ", expires_in=" + expires_in +
+                "accessToken='" + accessToken + '\'' +
+                ", expiresIn=" + expiresIn +
                 ", errcode=" + getErrcode() +
                 ", errmsg=" + getErrmsg() +
                 '}';
