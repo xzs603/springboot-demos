@@ -1,11 +1,14 @@
 package com.mttsui.wechat.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Map;
 
 public class TemplateMessage<T> {
 
     private String touser;
-    private String template_id;
+    @JsonProperty("template_id")
+    private String templateId;
     private String url;
     private Map<String, T> data;
 
@@ -17,12 +20,12 @@ public class TemplateMessage<T> {
         this.touser = touser;
     }
 
-    public String getTemplate_id() {
-        return template_id;
+    public String getTemplateId() {
+        return templateId;
     }
 
-    public void setTemplate_id(String template_id) {
-        this.template_id = template_id;
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
     }
 
     public String getUrl() {

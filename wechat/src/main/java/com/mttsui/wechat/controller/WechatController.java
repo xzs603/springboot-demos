@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.zip.CheckedOutputStream;
 
 @RequestMapping("wechat")
 @RestController
@@ -51,7 +50,7 @@ public class WechatController {
     public boolean sendTemplateMsg() {
         TemplateMessage<WcTemplateItem> templateMessage = new TemplateMessage<>();
         templateMessage.setTouser(touser);
-        templateMessage.setTemplate_id(wechatConfig.getTemplate_id());
+        templateMessage.setTemplateId(wechatConfig.getTemplateid());
         templateMessage.setUrl("https://m.cnblogs.com");
         Map<String, WcTemplateItem> words = new HashMap<>();
         words.put("hospitalName", new WcTemplateItem("第三人民医院"));
@@ -66,7 +65,7 @@ public class WechatController {
     public Object templateMsg() {
         TemplateMessage<WcTemplateItem> templateMessage = new TemplateMessage<>();
         templateMessage.setTouser(touser);
-        templateMessage.setTemplate_id(wechatConfig.getTemplate_id());
+        templateMessage.setTemplateId(wechatConfig.getTemplateid());
         templateMessage.setUrl("https://m.cnblogs.com");
         Map<String, WcTemplateItem> words = new TreeMap<>();
         words.put("hospitalName", new WcTemplateItem("第三人民医院"));
@@ -94,8 +93,7 @@ public class WechatController {
                 .replace("APPSECRET", wechatConfig.getAppsecret()).replace("CODE", code);
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new WxMappingJackson2HttpMessageConverter());
-        // 这里是个坑，必须trim
-        SnsAccessToken openid = restTemplate.getForObject(sendUrl.trim(), SnsAccessToken.class);
+        SnsAccessToken openid = restTemplate.getForObject(sendUrl, SnsAccessToken.class);
         System.out.println(openid);
         return openid;
     }

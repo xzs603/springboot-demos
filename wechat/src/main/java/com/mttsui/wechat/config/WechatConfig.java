@@ -11,7 +11,7 @@ public class WechatConfig {
 
     private String appsecret;
 
-    private String template_id;
+    private String templateid;
 
     public String getAppid() {
         return appid;
@@ -29,11 +29,11 @@ public class WechatConfig {
         this.appsecret = appsecret;
     }
 
-    public String getTemplate_id() {
-        return template_id;
+    public String getTemplateid() {
+        return templateid;
     }
 
-    public void setTemplate_id(String template_id) {
-        this.template_id = template_id;
+    public void setTemplateid(String templateid) {
+        this.templateid = templateid;
     }
 }

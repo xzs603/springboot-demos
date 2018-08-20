@@ -35,7 +35,7 @@ public class Constant {
      * 获取Openid
      */
     public static final String REQ_OPENID = "https://api.weixin.qq.com/sns/oauth2/access_token?" +
-            "appid=APPID&secret=APPSECRET&code=CODE&grant_type=authorization_code\n";
+            "appid=APPID&secret=APPSECRET&code=CODE&grant_type=authorization_code";
 
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
