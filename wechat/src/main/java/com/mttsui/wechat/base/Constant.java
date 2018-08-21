@@ -28,14 +28,21 @@ public class Constant {
     /**
      * 获取访问code
      */
-    public static final String REQ_CODE = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+    public static final String REQ_CODE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
             "appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
 
     /**
      * 获取Openid
      */
-    public static final String REQ_OPENID = "https://api.weixin.qq.com/sns/oauth2/access_token?" +
+    public static final String REQ_OPENID_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?" +
             "appid=APPID&secret=APPSECRET&code=CODE&grant_type=authorization_code";
+
+    /**
+     * 获取用户信息
+     */
+    public static final String REQ_USERINFO_URL = "https://api.weixin.qq.com/cgi-bin/user/info?" +
+            "access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
+
 
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
