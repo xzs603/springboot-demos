@@ -13,6 +13,8 @@ public class WechatConfig {
 
     private String templateid;
 
+    private String rooturi;
+
     public String getAppid() {
         return appid;
     }
@@ -35,5 +37,13 @@ public class WechatConfig {
 
     public void setTemplateid(String templateid) {
         this.templateid = templateid;
+    }
+
+    public String getRooturi() {
+        return rooturi;
+    }
+
+    public void setRooturi(String rooturi) {
+        this.rooturi = rooturi;
     }
 }

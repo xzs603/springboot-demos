@@ -4,14 +4,13 @@ import com.mttsui.wechat.base.CommonUtils;
 import com.mttsui.wechat.base.Constant;
 import com.mttsui.wechat.config.TokenService;
 import com.mttsui.wechat.config.WechatConfig;
-import com.mttsui.wechat.config.WxMappingJackson2HttpMessageConverter;
 import com.mttsui.wechat.dto.*;
 import com.mttsui.wechat.service.IWechatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,9 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-@RequestMapping("wechat")
+@RequestMapping(WechatController.CUR_PATH)
 @RestController
 public class WechatController {
+
+    public static final String CUR_PATH = "/wechat";
 
     @Autowired
     private WechatConfig wechatConfig;
@@ -77,10 +78,12 @@ public class WechatController {
     }
 
     @GetMapping("getcode")
-    public void getCode(HttpServletResponse response) {
-        RestTemplate restTemplate = new RestTemplate();
+    public void getCode(String service, HttpServletResponse response) {
+        if (StringUtils.isEmpty(service)) {
+            service = "openid";
+        }
         String sendUrl = Constant.REQ_CODE_URL.replace("APPID", wechatConfig.getAppid()).
-                replace("REDIRECT_URI", "http://samxu.free.idcfengye.com/wechat/openid");
+                replace("REDIRECT_URI", wechatConfig.getRooturi() + CUR_PATH + "/" + service);
         try {
             response.sendRedirect(sendUrl);
         } catch (IOException e) {
@@ -90,15 +93,13 @@ public class WechatController {
 
     @GetMapping("openid")
     public Object getOpenid(String code) {
-        String sendUrl = Constant.REQ_OPENID_URL.replace("APPID", wechatConfig.getAppid())
-                .replace("APPSECRET", wechatConfig.getAppsecret()).replace("CODE", code);
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new WxMappingJackson2HttpMessageConverter());
-        SnsAccessToken snsAccessToken = restTemplate.getForObject(sendUrl, SnsAccessToken.class);
-        System.out.println(snsAccessToken);
-        String wechatUserinfoUrl = Constant.REQ_USERINFO_URL.replace("ACCESS_TOKEN",
-                tokenService.getAccessToken()).replaceAll("OPENID", snsAccessToken.getOpenid());
-        WechatUserInfo wechatUserInfo = restTemplate.getForObject(wechatUserinfoUrl, WechatUserInfo.class);
+        if (StringUtils.isEmpty(code)) {
+            return "code不能为空";
+        }
+        // 根据code获取snsAccessToken
+        SnsAccessToken snsAccessToken = wechatService.getSnsAccessToken(code);
+        // 根据snsAccessToken中的openid查询用户信息
+        WechatUserInfo wechatUserInfo = wechatService.getWechatUserInfo(snsAccessToken.getOpenid());
         return wechatUserInfo;
     }
 }

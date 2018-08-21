@@ -1,5 +1,6 @@
 package com.mttsui.wechat.base;
 
+import com.mttsui.wechat.config.WxMappingJackson2HttpMessageConverter;
 import com.mttsui.wechat.dto.TextMessage;
 import org.springframework.web.client.RestTemplate;
 
@@ -10,8 +11,10 @@ public class CommonUtils {
      *
      * @return
      */
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
+    public static RestTemplate getRestTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new WxMappingJackson2HttpMessageConverter());
+        return restTemplate;
     }
 
     public static TextMessage genTextMessage(String touser, String message) {
