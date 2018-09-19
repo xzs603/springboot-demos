@@ -2,6 +2,7 @@ package com.mttsui.mybatis.mapper;
 
 import com.mttsui.mybatis.entity.SysUser;
 import java.util.List;
+import java.util.Map;
 
 public interface SysUserMapper {
     /**
@@ -43,4 +44,10 @@ public interface SysUserMapper {
      * @mbg.generated Sun Jul 29 19:25:48 CST 2018
      */
     int updateByPrimaryKey(SysUser record);
+
+    List<Map> query1();
+
+    List<Map> query2();
+
+    List<Map> query3();
 }

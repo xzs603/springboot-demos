@@ -59,4 +59,15 @@
     select id, age, name
     from sys_user
   </select>
+  <select id="query1" resultType="java.util.Map">
+    SELECT id, act_ind, username, birthday, nickname FROM t_sys_user
+  </select>
+
+  <select id="query2" resultType="map">
+    SELECT id, act_ind, username, birthday, nickname FROM t_sys_user
+  </select>
+
+  <select id="query3" resultType="map">
+    SELECT id, act_ind actInd, username, birthday, nickname FROM t_sys_user
+  </select>
 </mapper>
