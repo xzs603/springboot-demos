@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletResponse;
+
 @RequestMapping("index")
 @RestController
 public class IndexController {
@@ -17,6 +19,14 @@ public class IndexController {
 
     @GetMapping
     public String index() {
+        System.out.println("enter index");
+        return "Hello, baby.";
+    }
+
+    @GetMapping("cross")
+    public String cross(HttpServletResponse response) {
+        //response.addHeader("Access-Control-Allow-Origin","*");
+        System.out.println("enter index");
         return "Hello, baby.";
     }
 
