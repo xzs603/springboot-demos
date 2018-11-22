@@ -16,3 +16,7 @@ spring:
       hibernate:
         hbm2ddl:
           auto: update
+
+foo:
+  bar:
+    name: 2000

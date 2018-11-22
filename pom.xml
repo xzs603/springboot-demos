@@ -20,6 +20,7 @@
         <module>mybatisplus</module>
         <module>wechat</module>
         <module>springboot-redis</module>
+        <module>redis</module>
     </modules>
 
 
